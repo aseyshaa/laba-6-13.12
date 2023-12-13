@@ -1,83 +1,103 @@
 class Worker:
+    """Представляет сотрудника фирмы."""
     def __init__(self, name, surname, age):
+        """Инициализация атрибутов класса Worker"""
         self.__name = name
         self.__surname = surname
         self.__age = age
 
     @property
     def name(self):
+        """Уровень доступности атрибута name = private"""
         return self.__name
 
     @property
     def surname(self):
+        """Уровень доступности атрибута surname = private"""
         return self.__surname
 
     @property
     def age(self):
+        """Уровень доступности атрибута age = private"""
         return self.__age
 
     def __str__(self):
+        """Вывод информации об объекте типа Worker """
         return f"{self.name} {self.surname}, Возраст: {self.age}"
 
 
 class Boss:
     def __init__(self, name, surname, age):
+        """Представляет директора фирмы."""
         self.__name = name
         self.__surname = surname
         self.__age = age
 
     @property
     def name(self):
+        """Уровень доступности атрибута name = private"""
         return self.__name
 
     @property
     def surname(self):
+        """Уровень доступности атрибута surname = private"""
         return self.__surname
 
     @property
     def age(self):
+        """Уровень доступности атрибута age = private"""
         return self.__age
 
     def __str__(self):
+        """Вывод информации об объекте типа Boss """
         return f"{self.name} {self.surname}, Возраст: {self.age}"
 
 
 class Work:
     def __init__(self, name_of_work):
+        """Представляет фирму с директором и сотрудниками."""
         self.__name_of_work = name_of_work
         self.__boss = None
         self.__workers = []
 
     @property
     def name_of_work(self):
+        """Уровень доступности атрибута name_of_work = private"""
         return self.__name_of_work
 
     @property
     def boss(self):
+        """Уровень доступности атрибута boss = private"""
         return self.__boss
 
     @property
     def workers(self):
+        """Уровень доступности атрибута workers = private"""
         return self.__workers
 
     def make_boss(self, boss):
+        """Назначает директора фирмы."""
         self.__boss = boss
 
     def make_worker(self, worker):
+        """Добавляет сотрудника в фирму."""
         self.__workers.append(worker)
 
     def __str__(self):
+        """Возвращает строковое представление фирмы."""
         boss_str = f"Директор: {self.boss}" if self.boss else "Директор не назначен"
         workers_str = "\n".join(str(worker) for worker in self.workers)
         return f"Фирма: {self.name_of_work}\n{boss_str}\nСотрудники:\n{workers_str}"
 
 
 def create_work():
+    """Создает новую фирму, запрашивая у пользователя название."""
     name_of_work = input("Введите название фирмы: ")
     return Work(name_of_work)
 
 
 def create_boss():
+    """Создает нового директора, запрашивая у пользователя имя, фамилию и возраст."""
     while True:
         name = input("Введите имя директора: ")
         if name.isalpha():
@@ -99,6 +119,7 @@ def create_boss():
 
 
 def create_worker():
+    """Создает нового сотрудника, запрашивая у пользователя имя, фамилию и возраст."""
     while True:
         name = input("Введите имя сотрудника: ")
         if name.isalpha():
@@ -120,6 +141,7 @@ def create_worker():
 
 
 def menu():
+    """Отображает главное меню и предоставляет пользователю опции для взаимодействия с программой."""
     work = None
     boss = None
 

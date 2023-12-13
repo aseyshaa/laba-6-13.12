@@ -73,15 +73,50 @@ class Work:
 
 
 def create_work():
-    return
+    name_of_work = input("Введите название фирмы: ")
+    return Work(name_of_work)
 
 
 def create_boss():
-    return
+    while True:
+        name = input("Введите имя директора: ")
+        if name.isalpha():
+            break
+        else:
+            print("Ошибка: Имя должно состоять только из букв. Попробуйте снова.")
+
+    surname = input("Введите фамилию директора: ")
+
+    while True:
+        age = input("Введите возраст директора: ")
+        try:
+            age = int(age)
+            break  # Если возраст успешно преобразован в целое число, завершаем цикл
+        except ValueError:
+            print("Ошибка: Возраст должен быть числом. Попробуйте снова.")
+
+    return Boss(name, surname, age)
 
 
 def create_worker():
-    return
+    while True:
+        name = input("Введите имя сотрудника: ")
+        if name.isalpha():
+            break
+        else:
+            print("Ошибка: Имя должно состоять только из букв. Попробуйте снова.")
+
+    surname = input("Введите фамилию сотрудника: ")
+
+    while True:
+        age = input("Введите возраст сотрудника: ")
+        try:
+            age = int(age)
+            break  # Если возраст успешно преобразован в целое число, завершаем цикл
+        except ValueError:
+            print("Ошибка: Возраст должен быть числом. Попробуйте снова.")
+
+    return Worker(name, surname, age)
 
 
 def menu():
@@ -101,11 +136,25 @@ def menu():
         choose = input("Выберите пункт меню: ")
 
         if choose == "1":
-            pass
+            work = create_work()
+            print("Фирма создана.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "2":
-            pass
+            if work:
+                boss = create_boss()
+                work.make_boss(boss)
+                print("Директор назначен.")
+            else:
+                print("Сначала создайте фирму.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "3":
-            pass
+            if work:
+                worker = create_worker()
+                work.make_worker(worker)
+                print("Сотрудник создан.")
+            else:
+                print("Сначала создайте фирму.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "4":
             pass
         elif choose == "5":

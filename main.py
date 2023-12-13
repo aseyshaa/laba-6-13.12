@@ -156,15 +156,29 @@ def menu():
                 print("Сначала создайте фирму.")
             input("Нажмите Enter, чтобы продолжить...")
         elif choose == "4":
-            pass
+            if work and work.workers:
+                for i, worker in enumerate(work.workers, start=1):
+                    print(f"{i}. {worker}")
+            else:
+                print("Нет сотрудников.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "5":
-            pass
+            if boss:
+                print(boss)
+            else:
+                print("Нет директора.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "6":
-            pass
+            if work:
+                print(work)
+            else:
+                print("Фирма не создана.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "7":
-            pass
+            print("Выход из программы.")
+            break
         else:
-            pass
+            print("Некорректный выбор. Пожалуйста, выберите снова.")
 
 
 if __name__ == "__main__":

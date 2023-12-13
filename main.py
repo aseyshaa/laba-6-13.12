@@ -1,62 +1,82 @@
-from lorem_text import lorem
+class Worker:
+    def __init__(self, name, surname, age):
+        self.__name = name
+        self.__surname = surname
+        self.__age = age
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def surname(self):
+        return self.__surname
+
+    @property
+    def age(self):
+        return self.__age
+
+    def __str__(self):
+        return f"{self.name} {self.surname}, Возраст: {self.age}"
 
 
-def analysis_text(text):
-    # словарь для хранения частот символов
-    frequency = {}
-    # Подсчитываем общее число символов в тексте
-    count_symbols = len(text)
-    # Проходимся по каждому символу в тексте
-    for symbol in text:
-        if symbol in frequency:
-            frequency[symbol] += 1
-        else:
-            frequency[symbol] = 1
-    # Преобразуем частоты символов в пары (символ, частота встречаемости)
-    result = [(symbol, frequency / count_symbols) for symbol, frequency in frequency.items()]
-    return result
+class Boss:
+    def __init__(self):
+        return
+
+    def __str__(self):
+        return
 
 
-def hand_text():
-    text = input("Введите текст: ")
-    print("Вы ввели следующий текст:")
-    print(text)
-    return text
+class Work:
+    def __init__(self):
+        return
 
 
-def autotext():
-    text = lorem.paragraph()
-    print(text)
-    return text
+def create_work():
+    return
+
+
+def create_boss():
+    return
+
+
+def create_worker():
+    return
 
 
 def menu():
-    text = ""
+    work = None
+    boss = None
+
     while True:
         print("Главное меню:")
-        print("1. Ввести текст вручную.")
-        print("2. Ввести текст случайным образом.")
-        print("3. Решение задачи.")
-        print("4. Выход из программы ")
+        print("1. Создать фирму.")
+        print("2. Создать директора(количество - 1).")
+        print("3. Создать сотрудника.(количество - не ограничено)")
+        print("4. Вывести информацию о сотруднике.")
+        print("5. Вывести информацию о директоре.")
+        print("6. Вывести информацию о фирме.")
+        print("7. Выход из программы ")
 
         choose = input("Выберите пункт меню: ")
 
         if choose == "1":
-            text = hand_text()
-            input("Нажмите Enter, чтобы продолжить...")
+            pass
         elif choose == "2":
-            text = autotext()
-            input("Нажмите Enter, чтобы продолжить...")
+            pass
         elif choose == "3":
-            result = analysis_text(text)
-            for symbol, frequency in result:
-                print(f"{symbol} - {frequency:.4f}")
-            input("Нажмите Enter, чтобы продолжить...")
+            pass
         elif choose == "4":
-            print("Выход из программы.")
-            break
+            pass
+        elif choose == "5":
+            pass
+        elif choose == "6":
+            pass
+        elif choose == "7":
+            pass
         else:
-            print("Некорректный выбор. Пожалуйста, выберите снова.")
+            pass
 
 
 if __name__ == "__main__":
